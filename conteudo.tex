@@ -10,12 +10,12 @@ Na simulação dos circuitos, observamaos um filtro passa baixa, que para freqû
 
 Para a criação da PCI foi utilizado o software KiCad, as dimensões do indutor utilizado e o tipo de capacitor, podendo ele ser eletrolítico ou cerâmico, foram determinados por dois números, M e N, dados a cada integrante do grupo. Através da média do primeiro número, M, tinha-se a largura do indutor, e a partir do outro, a profundidade. A soma dos dois valores, M+N, determinava o tipo de capacitor, sendo usado um capacitor eletrolítico se a soma der par e um capacitor cerâmico se ímpar.
 
-Finalmente, temos o cálculo de um possível dissipador térmico pra o CI LM7805, para isso utilizamos o \textit{datasheet} do mesmo e cálculos mostrados em aula. 
+Finalmente, temos o cálculo de um possível dissipador térmico pra o CI LM7805, para isso utilizamos o \textit{datasheet}\cite{datasheet} do mesmo e cálculos mostrados em aula. 
 
 % ---
 \chapter{Ferramentas de Simulação}\label{cap_simul}
 % ---
-    Para a tarefa 2 proposta da aula 2, temos que primeiramente analisar analiticamente o circuito da figura a). A partir dele, calculamos o $\tau$, $\tau = R*C $, logo $\tau = 1k5 * 100n = 150us$. Para o cálculo da frquência de corte, usamos o valor de $\tau$ anteriormente obtido na fórmula $f = 1/(2\pi\tau)$ e assim a frequência de corte é $f = 1061.033 Hz$. O ganho K, em regime permanente, é dado por $K = Vo/Vi$ onde $Vi$ é a fonte e $Vo$ é a ddp medida no capacitor. Temos, então $K = 1/(1 + 1.5*10^{-4}s)$.
+    Para a tarefa 2 proposta da aula 2, temos que primeiramente analisar analiticamente o circuito da figura a). A partir dele, calculamos o $\tau$, $\tau = R*C $, logo $\tau = 1k5 * 100n = 150us$. Para o cálculo da frquência de corte, usamos o valor de $\tau$ anteriormente obtido na fórmula $f = 1/(2\pi\tau)$ e assim a frequência de corte é $f = 1061.033 Hz$. O ganho K, em regime permanente, é dado por $K = Vo/Vi$ onde $Vi$ é a fonte e $Vo$ é a ddp medida no capacitor. Temos, então $K = 1/(1 + 1.5*10^{-4}s)$, para o regime permanente $K = 1$
     
     Simulando o circuito a), para achar a frequência de corte:
 \begin{figure}[!htb]
@@ -55,7 +55,7 @@ Para o capacitor carregar 63\% do valor, no micro-cap temos um tempo de 150.876u
     
  \begin{figure}[!htb]
     \centering
-    \includegraphics[width=8cm,height=6cm]{Relatorio1_teo_diodo.png}
+    \includegraphics[scale = 0.2]{Relatorio1_teo_diodo.png}
     \caption{Análise teórica}
 \end{figure}
     
@@ -78,34 +78,32 @@ Para o capacitor carregar 63\% do valor, no micro-cap temos um tempo de 150.876u
   
 %-----------------------------------------------
 %   Projeto de uma Placa de Circuito Impresso 
-%
-%---------------------------------
+%-----------------------------------------------
 \chapter{Projeto de uma Placa de Circuito Impresso }\label{cap_pcb}
 
-Para o projeto da PCI, foi utilizado o software KiCAd\cite{kicad}. Nos era proposto a criação de um circuito RLC, onde o capacitor e o indutor era diferente para cada grupo. Para essa etapa, cada integrante do grupo recebeu dois valores $M$ e $N$, dados pelo professor,fazendo a média dos valores e arredondando para cima, temos novos $M$ e $N$. Esses novos valores que foram utilizados para o dimensionamento do indutor e o tipo de capacitor. No nosso caso, o indutor deveria ter uma altura de 20mm, largura de 50mm e profundidade e 20mm, e nosso capacitor é cerâmico.
+Para o projeto da PCI, foi utilizado o software KiCAd\cite{kicad}. Nos era proposto a criação de um circuito RLC, onde o capacitor e o indutor era diferente para cada grupo. Para essa etapa, cada integrante do grupo recebeu dois valores $M$ e $N$, dados pelo professor,fazendo a média dos valores e arredondando para cima, temos novos $M$ e $N$. Esses novos valores que foram utilizados para o dimensionamento do indutor e o tipo de capacitor. No nosso caso, o indutor deveria ter uma altura de 20mm, largura de 50mm e profundidade de 20mm, e nosso capacitor é cerâmico.
 
 \begin{figure}[!htb]
     \begin{minipage}{0.5\textwidth}
     \centering
-    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_1.png}
+    \includegraphics[scale = 0.5]{PCB_1.png}
     \caption{Top layer}
     \end{minipage}\hfill
     \begin{minipage}{0.5\textwidth}
     \centering
-    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_2.png}
+    \includegraphics[scale = 0.5]{PCB_2.png}
     \caption{Bottom layer}
     \end{minipage}\hfill
-\end{figure}
-
-\begin{figure}[!htb]
+%\end{figure}
+%\begin{figure}[!htb]
     \begin{minipage}{0.5\textwidth}
     \centering
-    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_3.png}
+    \includegraphics[scale = 0.5]{PCB_3.png}
     \caption{Layout}
     \end{minipage}\hfill
     \begin{minipage}{0.5\textwidth}
     \centering
-    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_4.png}
+    \includegraphics[width = 0.5\textwidth]{PCB_4.png}
     \caption{Esquemático}
     \end{minipage}\hfill
 \end{figure}
@@ -113,9 +111,35 @@ Para o projeto da PCI, foi utilizado o software KiCAd\cite{kicad}. Nos era propo
 \clearpage
 Na bottom layer, vemos que não temos uma rota para o ground, isso ocorre porque ela é uma zona preenchida \textit{gnd} assim, só é necessário o ponto de soldagem no capacitor e no resistor para eles estarem conectados ao ground.
 
-%-
-%	 Dimensionamento Térmico de um Dissipador 
-%
-%
+%-----------------------------------------------
+%	    Dimensionamento Térmico de um Dissipador 
+%-----------------------------------------------
+
 \chapter{Dimensionamento Térmico de um Dissipador}
+
+O circuito integrado CI LM7805 possui uma tensão de saída tipicamente de 5$V$, isso se for usado entre -40$^{\circ}$C e 125$^{\circ}$C e a tensão de entrada for entre 5$V$ e 18$V$. Para o cálculo da potência dissipada, temos: 
+\begin{equation}
+    P_{d} = (V_{in}-V_{o})*I_{o} = (10 - 5)*0.5 = 2.5W
+\end{equation}
+Através do datasheet, temos que a temperatura de operação máxima desse CI é de 125$^{\circ}$C. Para o cálculo da resistência térmica máxima admitida, usaremos $ R_{\theta cs} = 0.5^{\circ}C/W $ e que do datasheet\cite{datasheet}, $T_{j_{max}} = 125^{\circ}C$ e $ R_{\theta jc} = 5^{\circ}C/W$. Usaremos 90\% da temperatura máxima possível para margens de temperatura e temperatura ambiente de 40$^{\circ}$C
+\begin{equation}
+    R_{\theta ja} =  (0.9*T_{j} - T_{a})/P_{d}
+\end{equation}
+Com os valores dos datsheets e das definições:
+\begin{equation}
+        R_{\theta ja} =  (72.5 - 40)/2.5 = 29^{\circ}C
+\end{equation}
+A partir do datasheet\cite{datasheet}, podemos ver que $R_{\theta ja}$ é de 65$^{\circ}$C, logo não é necessário a utilização de um dissipador térmico.
+
+%------------------------------------------------
+%                   Conclusão
+%------------------------------------------------
+\chapter{Conclusão}
+
+Nesse relatório revimos conceitos de circuitos e eletônica, uso dos simuladores Micro-cap\cite{microcap} e PSIM\cite{psim}. 
+
+Uma novidade foi o projeto de uma PCI, que foi utilizado o software gratuito KiCad\cite{kicad} para o desenvolvimento da mesma. Para o projeto, foi necessário um aprendizado de forma rápida e eficiente, já que era uma ferramenta complexa e a disponibilidade de tempo era reduzida. Entretanto, o site da KiCad oferece muitos tutoriais textuais assim como em vídeo.
+
+Para o cálculo do dissipador, vimos que não seria necessário um, pois a resistência calculada era menor do que a fornecida pelo datasheet\cite{datasheet} do fabricante.
+
 
