@@ -1,0 +1,34 @@
+% ----------------------------------------------------------
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
+% ----------------------------------------------------------
+\chapter*{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
+Esse relatório tem como objetivo, a partir de ferramentas de simulação de circuitos, mostrar o comportamento de dois circuitos. Além disso, é feito um projeto de uma placa de circuito impressa (PCI) e o cálculo de dimensionamento térmico de um dissipador para o CI LM7805. 
+
+Na simulação dos circuitos, observamaos um passa baixa, que para freqûencias baixas o ganho é próximo de um, e que depois da frequência de corte, seus ganhos tendem a zero. Veremos também um circuito com dois diodos em paralelo. Para a análise destes circuitos, utilizamos o Micro-cap e o PSIM, ambos softwares de simulação de circuitos e vistos anteriormente em outra disciplina.
+
+Para a criação da PCI foi utilizado o software KiCad, as dimensões do indutor utilizado e o tipo de capacitor, podendo ele ser eletrolítico ou cerâmico, foram determinados por dois números, M e N, dados a cada integrante do grupo.Através da média do primeiro número, M, tinha-se a largura do indutor, e a partir do outro, a profundidade. A soma dos dois valores, M+N, determinava o tipo de capacitor, sendo usado um capacitor eletrolítico se a soma der par e um capacitor cerâmico se ímpar.
+
+Finalmente, temos o cálculo de um possível dissipador térmico pra o CI LM7805, para isso utilizamos o \textit{datasheet} do mesmo e cálculos mostrados em aula. 
+
+% ---
+\chapter{Ferramentas de Simulação}\label{cap_simul}
+% ---
+    Para a tarefa 2 proposta da aula 2, temos que primeiramente analisar analiticamente o circuito da figura a). A partir dele, calculamos o $\tau$, $\tau = R*C $, logo $\tau = 1k5 * 100n = 150us$. Para o cálculo da frquência de corte, usamos o valor de $\tau$ anteriormente obtido na fórmula $f = 1/(2\pi\tau)$ e assim a frequência de corte é $f = 1061.033 Hz$. O ganho K, em regime permanente, é dado por $K = Vo/Vi$ onde $Vi$ é a fonte e $Vo$ é a ddp medida no capacitor. Temos, então $K = 1/(1 + 1.5*10^{-4}s)$.
+    
+    
+    
+    
+    
+    
+    
+\chapter{Conclusão}\label{cap_concl}
+
+
+\chapterprecis{Descrição do capítulo.}\index{sinopse de capítulo}
+
+%-
+%	Conclusão
+%
+%
