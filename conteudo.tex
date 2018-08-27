@@ -8,7 +8,7 @@ Esse relatório tem como objetivo, a partir de ferramentas de simulação de cir
 
 Na simulação dos circuitos, observamaos um filtro passa baixa, que para freqûencias baixas o ganho é próximo de um, e que depois da frequência de corte, seus ganhos tendem a zero. Veremos também um circuito com dois diodos em paralelo. Para a análise destes circuitos, utilizamos o Micro-cap e o PSIM, ambos softwares de simulação de circuitos e vistos anteriormente em outra disciplina.
 
-Para a criação da PCI foi utilizado o software KiCad, as dimensões do indutor utilizado e o tipo de capacitor, podendo ele ser eletrolítico ou cerâmico, foram determinados por dois números, M e N, dados a cada integrante do grupo.Através da média do primeiro número, M, tinha-se a largura do indutor, e a partir do outro, a profundidade. A soma dos dois valores, M+N, determinava o tipo de capacitor, sendo usado um capacitor eletrolítico se a soma der par e um capacitor cerâmico se ímpar.
+Para a criação da PCI foi utilizado o software KiCad, as dimensões do indutor utilizado e o tipo de capacitor, podendo ele ser eletrolítico ou cerâmico, foram determinados por dois números, M e N, dados a cada integrante do grupo. Através da média do primeiro número, M, tinha-se a largura do indutor, e a partir do outro, a profundidade. A soma dos dois valores, M+N, determinava o tipo de capacitor, sendo usado um capacitor eletrolítico se a soma der par e um capacitor cerâmico se ímpar.
 
 Finalmente, temos o cálculo de um possível dissipador térmico pra o CI LM7805, para isso utilizamos o \textit{datasheet} do mesmo e cálculos mostrados em aula. 
 
@@ -74,21 +74,44 @@ Para o capacitor carregar 63\% do valor, no micro-cap temos um tempo de 150.876u
     \end{minipage}\hfill
 \end{figure}
 
-  Podemos notar que no PSIM, o resultado ficou muito mais parecido do teórico do que o do Micro-cap. Esse fato ocorre devido ao tipo de diodo utilizado, e o modelo usado pra calcular a forma de onda do mesmo. Na teoria foi utilizado um diodo com 0.7 de \textit{forward voltage} e no PSIM também. Assumimos um comportamento ideal do diodo, logo a resistência interna é zero. Entretanto, no modelo usado no PSIM a resistência interna é de 100m$\Omega$
+  Podemos notar que no PSIM, o resultado ficou muito mais parecido do teórico do que o do Micro-cap. Esse fato ocorre devido ao tipo de diodo utilizado, e o modelo usado pra calcular a forma de onda do mesmo. Na teoria foi utilizado um diodo com 0.7 de \textit{forward voltage} e no PSIM também. Assumimos um comportamento ideal do diodo, logo a resistência interna é zero. Entretanto, no modelo usado no PSIM a resistência interna é de 100m$\Omega$, e o modelo do Micro-cap é o modelo 1N4148.
+  
+%-----------------------------------------------
+%   Projeto de uma Placa de Circuito Impresso 
+%
+%---------------------------------
+\chapter{Projeto de uma Placa de Circuito Impresso }\label{cap_pcb}
 
+Para o projeto da PCI, foi utilizado o software KiCAd\cite{kicad}. Nos era proposto a criação de um circuito RLC, onde o capacitor e o indutor era diferente para cada grupo. Para essa etapa, cada integrante do grupo recebeu dois valores $M$ e $N$, dados pelo professor,fazendo a média dos valores e arredondando para cima, temos novos $M$ e $N$. Esses novos valores que foram utilizados para o dimensionamento do indutor e o tipo de capacitor. No nosso caso, o indutor deveria ter uma altura de 20mm, largura de 50mm e profundidade e 20mm, e nosso capacitor é cerâmico.
 
+\begin{figure}[!htb]
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_1.png}
+    \caption{Top layer}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_2.png}
+    \caption{Bottom layer}
+    \end{minipage}\hfill
+\end{figure}
 
+\begin{figure}[!htb]
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_3.png}
+    \caption{Layout}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[height = 6cm,width = 0.75\textwidth]{PCB_4.png}
+    \caption{Esquemático}
+    \end{minipage}\hfill
+\end{figure}
 
-
-
-
-
-
-
-\chapter{Conclusão}\label{cap_concl}
-
-
-\chapterprecis{Descrição do capítulo.}\index{sinopse de capítulo}
+\clearpage
+Na bottom layer, vemos que não temos uma rota para o ground, isso ocorre porque ela é uma zona preenchida \textit{gnd} assim, só é necessário o ponto de soldagem no capacitor e no resistor para eles estarem conectados ao ground.
 
 %-
 %	Conclusão
